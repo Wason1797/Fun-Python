@@ -8,6 +8,7 @@ w = curses.newwin(sh, sw, 0, 0)
 w.keypad(1)
 w.timeout(100)
 
+
 snk_x = sw//4
 snk_y = sh//2
 snake = [
@@ -26,7 +27,7 @@ while True:
     next_key = w.getch()
     key = key if next_key == -1 else next_key
 
-    if snake[0][0] in [0, sh] or snake[0][1] in [0, sw] or snake[0] in snake[1:]:
+    if snake[0][0] in [0, sh] or snake[0][1] in [0, sw] or snake[0] in snake[1::]:
         curses.endwin()
         quit()
 
@@ -57,4 +58,8 @@ while True:
         tail = snake.pop()
         w.addch(tail[0], tail[1], ' ')
 
-    w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD)
+    try:
+       w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD)
+    except:
+       curses.endwin()
+       quit() 
