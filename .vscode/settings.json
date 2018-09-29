@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.pep8Enabled": false,
+    "python.linting.enabled": false,
+    "python.pythonPath": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+    "python.linting.flake8Enabled": true
+}

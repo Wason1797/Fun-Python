@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: windows-curses
+Version: 1.0
+Summary: Support for the standard curses module on Windows
+Home-page: http://bugs.python.org/issue2889
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: PSF2
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console :: Curses
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: License :: OSI Approved :: Python Software Foundation License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+Adds support for the standard Python curses module on Windows. Based on
+https://www.lfd.uci.edu/~gohlke/pythonlibs/#curses. Uses the PDCurses
+curses implementation.
+
+PDCurses is compiled with wide character support, meaning get_wch() is
+available. UTF-8 is forced as the encoding.
+
+Note that PDCurses requires an explicit curses.resize_term(0, 0) call after
+receiving KEY_RESIZE to get behavior similar to the automatic SIGWINCH handling
+in ncurses. ncurses reliably fails for resize_term(0, 0), so a compatibility
+hack is to always call resize_term(0, 0) and ignore any curses.error
+exceptions.
+
+Maybe it would be better to detect KEY_RESIZE in _cursesmodule.c and call
+resize_term(0, 0) there, for automatic compatibility...
+
