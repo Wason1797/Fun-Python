@@ -29,6 +29,9 @@ class Branch:
         self.angle_r=_angle_r
         self.angle_l = _angle_l
 
+    def __repr__(self):
+        return "["+str((self.start_x, self.start_y)) + ", " + str((self.end_x, self.end_y))+"]"
+
     def dist(self):
         return distance(self.start_x, self.start_y, self.end_x, self.end_y)*ratio
 
@@ -70,11 +73,12 @@ def add_branches():
 
 
 if __name__ == '__main__':
-    myTurtle.speed(9)
+    myTurtle.speed(10)
     setup()
     print(len(tree))
     for i in range(level):
         add_branches()
+    print(tree)
     for branch in tree:
         branch.draw()
     turtle.done()

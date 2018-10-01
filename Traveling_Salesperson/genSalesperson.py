@@ -20,10 +20,10 @@ _with, _height = window.get_size()
 cities = []
 # cities = [(385, 121), (109, 259), (381, 213),
 # (188, 454), (308, 322), (274, 454), (176, 106), (563, 206)]
-num_cities = 10
+num_cities = 9
 population = []
 p_size = 600     # p_size mus not be greater than factorial(num_cities)
-max_generations = 30
+max_generations = 40
 fitness = []
 min_distance = 0
 best_path = []
@@ -114,7 +114,7 @@ def pick_fitness_based(pop_arr, fit_arr):
 def mutate(_parent, _rate):
     for counter in range(num_cities):
         if rd.random() < _rate:
-            index = rd.randint(0, len(_parent)-2)
+            index = rd.randint(0, len(_parent)-1) % (len(_parent)-1)
             swap(_parent, index, index+1)
 
 
@@ -152,7 +152,7 @@ def next_generation():
         order_a = pick_fitness_based(population, fitness)
         order_b = pick_fitness_based(population, fitness)
         order = cross_over(order_a, order_b)
-        mutate(order, 0.2)
+        mutate(order, 0.25)
         new_population.append(order)
     return new_population
 
@@ -189,7 +189,7 @@ if __name__ == '__main__':
             population = next_generation()
             fitness.clear()
             new_best_path, new_min_distance = calculate_population_fitness()
-            if new_min_distance < min_distance:
+            if new_min_distance <= min_distance:
                 min_distance = new_min_distance
                 best_path = new_best_path
                 print(generation_count)
@@ -200,18 +200,18 @@ if __name__ == '__main__':
             stop_draw = None
             print(new_min_distance)
             print(min_distance / new_min_distance)
-        elif min_distance/new_min_distance < 0.999999:
-            print(new_min_distance)
-            print(min_distance / new_min_distance)
-            population = next_generation()
-            fitness.clear()
-            new_best_path, new_min_distance = calculate_population_fitness()
-            if new_min_distance < min_distance:
-                min_distance = new_min_distance
-                best_path = new_best_path
-                print(generation_count)
-                print(best_path)
-                print(min_distance)
-            normalize_fitness()
-            generation_count += 1
-            stop_draw = None
+        # elif min_distance/new_min_distance < 0.9999:
+        #    print(new_min_distance)
+        #    print(min_distance / new_min_distance)
+        #    population = next_generation()
+        #    fitness.clear()
+        #    new_best_path, new_min_distance = calculate_population_fitness()
+        #    if new_min_distance < min_distance:
+        #        min_distance = new_min_distance
+        #        best_path = new_best_path
+        #        print(generation_count)
+        #        print(best_path)
+        #        print(min_distance)
+        #    normalize_fitness()
+        #    generation_count += 1
+        #    stop_draw = None
