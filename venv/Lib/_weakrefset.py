@@ -98,7 +98,7 @@ class WeakSet:
             try:
                 itemref = self.data.pop()
             except KeyError:
-                raise KeyError('pop from empty WeakSet') from None
+                raise KeyError('pop from empty WeakSet')
             item = itemref()
             if item is not None:
                 return item
@@ -157,19 +157,19 @@ class WeakSet:
     __le__ = issubset
 
     def __lt__(self, other):
-        return self.data < set(map(ref, other))
+        return self.data < set(ref(item) for item in other)
 
     def issuperset(self, other):
         return self.data.issuperset(ref(item) for item in other)
     __ge__ = issuperset
 
     def __gt__(self, other):
-        return self.data > set(map(ref, other))
+        return self.data > set(ref(item) for item in other)
 
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return NotImplemented
-        return self.data == set(map(ref, other))
+        return self.data == set(ref(item) for item in other)
 
     def symmetric_difference(self, other):
         newset = self.copy()

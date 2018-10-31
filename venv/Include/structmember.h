@@ -16,11 +16,11 @@ extern "C" {
    pointer is NULL. */
 
 typedef struct PyMemberDef {
-    const char *name;
+    char *name;
     int type;
     Py_ssize_t offset;
     int flags;
-    const char *doc;
+    char *doc;
 } PyMemberDef;
 
 /* Types */

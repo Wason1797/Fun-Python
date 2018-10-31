@@ -78,7 +78,6 @@ PyAPI_FUNC(void) PyErr_SetNone(PyObject *);
 PyAPI_FUNC(void) PyErr_SetObject(PyObject *, PyObject *);
 #ifndef Py_LIMITED_API
 PyAPI_FUNC(void) _PyErr_SetKeyError(PyObject *);
-_PyErr_StackItem *_PyErr_GetTopmostException(PyThreadState *tstate);
 #endif
 PyAPI_FUNC(void) PyErr_SetString(
     PyObject *exception,
@@ -251,7 +250,7 @@ PyAPI_FUNC(PyObject *) PyErr_SetFromErrnoWithFilename(
     );
 #if defined(MS_WINDOWS) && !defined(Py_LIMITED_API)
 PyAPI_FUNC(PyObject *) PyErr_SetFromErrnoWithUnicodeFilename(
-    PyObject *, const Py_UNICODE *) Py_DEPRECATED(3.3);
+    PyObject *, const Py_UNICODE *);
 #endif /* MS_WINDOWS */
 
 PyAPI_FUNC(PyObject *) PyErr_Format(
@@ -285,7 +284,7 @@ PyAPI_FUNC(PyObject *) PyErr_SetFromWindowsErrWithFilename(
 #ifndef Py_LIMITED_API
 /* XXX redeclare to use WSTRING */
 PyAPI_FUNC(PyObject *) PyErr_SetFromWindowsErrWithUnicodeFilename(
-    int, const Py_UNICODE *) Py_DEPRECATED(3.3);
+    int, const Py_UNICODE *);
 #endif
 PyAPI_FUNC(PyObject *) PyErr_SetFromWindowsErr(int);
 PyAPI_FUNC(PyObject *) PyErr_SetExcFromWindowsErrWithFilenameObject(
@@ -301,7 +300,7 @@ PyAPI_FUNC(PyObject *) PyErr_SetExcFromWindowsErrWithFilename(
     );
 #ifndef Py_LIMITED_API
 PyAPI_FUNC(PyObject *) PyErr_SetExcFromWindowsErrWithUnicodeFilename(
-    PyObject *,int, const Py_UNICODE *) Py_DEPRECATED(3.3);
+    PyObject *,int, const Py_UNICODE *);
 #endif
 PyAPI_FUNC(PyObject *) PyErr_SetExcFromWindowsErr(PyObject *, int);
 #endif /* MS_WINDOWS */
@@ -351,7 +350,7 @@ PyAPI_FUNC(PyObject *) _PyErr_TrySetFromCause(
 #endif
 
 
-/* In signalmodule.c */
+/* In sigcheck.c or signalmodule.c */
 PyAPI_FUNC(int) PyErr_CheckSignals(void);
 PyAPI_FUNC(void) PyErr_SetInterrupt(void);
 
@@ -405,7 +404,7 @@ PyAPI_FUNC(PyObject *) PyUnicodeEncodeError_Create(
     Py_ssize_t start,
     Py_ssize_t end,
     const char *reason          /* UTF-8 encoded string */
-    ) Py_DEPRECATED(3.3);
+    );
 #endif
 
 /* create a UnicodeTranslateError object */
@@ -416,7 +415,7 @@ PyAPI_FUNC(PyObject *) PyUnicodeTranslateError_Create(
     Py_ssize_t start,
     Py_ssize_t end,
     const char *reason          /* UTF-8 encoded string */
-    ) Py_DEPRECATED(3.3);
+    );
 PyAPI_FUNC(PyObject *) _PyUnicodeTranslateError_Create(
     PyObject *object,
     Py_ssize_t start,

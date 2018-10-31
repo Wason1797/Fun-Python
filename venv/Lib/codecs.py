@@ -5,10 +5,9 @@ Written by Marc-Andre Lemburg (mal@lemburg.com).
 
 (c) Copyright CNRI, All Rights Reserved. NO WARRANTY.
 
-"""
+"""#"
 
-import builtins
-import sys
+import builtins, sys
 
 ### Registry and builtin stateless codec functions
 
@@ -742,7 +741,7 @@ class StreamReaderWriter:
         """
         return getattr(self.stream, name)
 
-    # these are needed to make "with StreamReaderWriter(...)" work properly
+    # these are needed to make "with codecs.open(...)" work properly
 
     def __enter__(self):
         return self

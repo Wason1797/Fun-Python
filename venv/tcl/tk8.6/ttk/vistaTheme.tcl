@@ -133,7 +133,7 @@ namespace eval ttk::theme::vista {
                 Spinbox.background -sticky news -children {
                     Spinbox.padding -sticky news -children {
                         Spinbox.innerbg -sticky news -children {
-                            Spinbox.textarea -expand 1
+                            Spinbox.textarea -expand 1 -sticky {}
                         }
                     }
                     Spinbox.uparrow -side top -sticky ens

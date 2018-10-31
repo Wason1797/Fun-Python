@@ -85,11 +85,7 @@ PyAPI_FUNC(_PyTime_t) _PyTime_FromSeconds(int seconds);
             ((_PyTime_t)(seconds) * (1000 * 1000 * 1000))
 
 /* Create a timestamp from a number of nanoseconds. */
-PyAPI_FUNC(_PyTime_t) _PyTime_FromNanoseconds(_PyTime_t ns);
-
-/* Create a timestamp from nanoseconds (Python int). */
-PyAPI_FUNC(int) _PyTime_FromNanosecondsObject(_PyTime_t *t,
-    PyObject *obj);
+PyAPI_FUNC(_PyTime_t) _PyTime_FromNanoseconds(long long ns);
 
 /* Convert a number of seconds (Python float or int) to a timetamp.
    Raise an exception and return -1 on error, return 0 on success. */
@@ -118,10 +114,6 @@ PyAPI_FUNC(_PyTime_t) _PyTime_AsMicroseconds(_PyTime_t t,
    object. */
 PyAPI_FUNC(PyObject *) _PyTime_AsNanosecondsObject(_PyTime_t t);
 
-/* Create a timestamp from a timeval structure.
-   Raise an exception and return -1 on overflow, return 0 on success. */
-PyAPI_FUNC(int) _PyTime_FromTimeval(_PyTime_t *tp, struct timeval *tv);
-
 /* Convert a timestamp to a timeval structure (microsecond resolution).
    tv_usec is always positive.
    Raise an exception and return -1 if the conversion overflowed,
@@ -148,21 +140,11 @@ PyAPI_FUNC(int) _PyTime_AsTimevalTime_t(
     _PyTime_round_t round);
 
 #if defined(HAVE_CLOCK_GETTIME) || defined(HAVE_KQUEUE)
-/* Create a timestamp from a timespec structure.
-   Raise an exception and return -1 on overflow, return 0 on success. */
-PyAPI_FUNC(int) _PyTime_FromTimespec(_PyTime_t *tp, struct timespec *ts);
-
 /* Convert a timestamp to a timespec structure (nanosecond resolution).
    tv_nsec is always positive.
    Raise an exception and return -1 on error, return 0 on success. */
 PyAPI_FUNC(int) _PyTime_AsTimespec(_PyTime_t t, struct timespec *ts);
 #endif
-
-/* Compute ticks * mul / div.
-   The caller must ensure that ((div - 1) * mul) cannot overflow. */
-PyAPI_FUNC(_PyTime_t) _PyTime_MulDiv(_PyTime_t ticks,
-    _PyTime_t mul,
-    _PyTime_t div);
 
 /* Get the current time from the system clock.
 
@@ -220,23 +202,6 @@ PyAPI_FUNC(int) _PyTime_localtime(time_t t, struct tm *tm);
 /* Converts a timestamp to the Gregorian time, assuming UTC.
    Return 0 on success, raise an exception and return -1 on error. */
 PyAPI_FUNC(int) _PyTime_gmtime(time_t t, struct tm *tm);
-
-/* Get the performance counter: clock with the highest available resolution to
-   measure a short duration.
-
-   The function cannot fail. _PyTime_Init() ensures that the system clock
-   works. */
-PyAPI_FUNC(_PyTime_t) _PyTime_GetPerfCounter(void);
-
-/* Get the performance counter: clock with the highest available resolution to
-   measure a short duration.
-
-   Fill info (if set) with information of the function used to get the time.
-
-   Return 0 on success, raise an exception and return -1 on error. */
-PyAPI_FUNC(int) _PyTime_GetPerfCounterWithInfo(
-    _PyTime_t *t,
-    _Py_clock_info_t *info);
 
 #ifdef __cplusplus
 }

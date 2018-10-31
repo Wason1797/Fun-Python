@@ -589,7 +589,7 @@ class MutableSet(Set):
         try:
             value = next(it)
         except StopIteration:
-            raise KeyError from None
+            raise KeyError
         self.discard(value)
         return value
 
@@ -746,7 +746,7 @@ class ItemsView(MappingView, Set):
 ItemsView.register(dict_items)
 
 
-class ValuesView(MappingView, Collection):
+class ValuesView(MappingView):
 
     __slots__ = ()
 
@@ -808,7 +808,7 @@ class MutableMapping(Mapping):
         try:
             key = next(iter(self))
         except StopIteration:
-            raise KeyError from None
+            raise KeyError
         value = self[key]
         del self[key]
         return key, value

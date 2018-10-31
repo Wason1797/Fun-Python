@@ -44,7 +44,11 @@ import shutil as _shutil
 import errno as _errno
 from random import Random as _Random
 import weakref as _weakref
-import _thread
+
+try:
+    import _thread
+except ImportError:
+    import _dummy_thread as _thread
 _allocate_lock = _thread.allocate_lock
 
 _text_openflags = _os.O_RDWR | _os.O_CREAT | _os.O_EXCL

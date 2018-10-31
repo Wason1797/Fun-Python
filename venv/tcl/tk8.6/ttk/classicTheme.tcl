@@ -15,7 +15,6 @@ namespace eval ttk::theme::classic {
 	-selectfg	"#000000"
 	-disabledfg	"#a3a3a3"
 	-indicator	"#b03060"
-	-altindicator	"#b05e5e"
     }
 
     ttk::style theme settings classic {
@@ -50,19 +49,15 @@ namespace eval ttk::theme::classic {
 	ttk::style configure TCheckbutton -indicatorrelief raised
 	ttk::style map TCheckbutton \
 	    -indicatorcolor [list \
-		    pressed $colors(-frame) \
-		    alternate $colors(-altindicator) \
-		    selected $colors(-indicator)] \
-	    -indicatorrelief {alternate raised  selected sunken  pressed sunken} \
+		pressed $colors(-frame)  selected $colors(-indicator)] \
+	    -indicatorrelief {selected sunken  pressed sunken} \
 	    ;
 
 	ttk::style configure TRadiobutton -indicatorrelief raised
 	ttk::style map TRadiobutton \
 	    -indicatorcolor [list \
-		    pressed $colors(-frame) \
-		    alternate $colors(-altindicator) \
-		    selected $colors(-indicator)] \
-	    -indicatorrelief {alternate raised  selected sunken  pressed sunken} \
+		pressed $colors(-frame)  selected $colors(-indicator)] \
+	    -indicatorrelief {selected sunken  pressed sunken} \
 	    ;
 
 	ttk::style configure TMenubutton -relief raised -padding "3m 1m"

@@ -114,12 +114,10 @@ set m $w.menu.icon
 $w.menu add cascade -label "Icons" -menu $m -underline 0
 menu $m -tearoff 0
 # Main widget program sets variable tk_demoDirectory
-image create photo lilearth -file [file join $tk_demoDirectory \
-images earthmenu.png]
-$m add command -image lilearth \
+$m add command -bitmap @[file join $tk_demoDirectory images pattern.xbm] \
     -hidemargin 1 -command [list \
 	tk_dialog $w.pattern {Bitmap Menu Entry} \
-		"The menu entry you invoked displays a photoimage rather than\
+		"The menu entry you invoked displays a bitmap rather than\
 		a text string.  Other than this, it is just like any other\
 		menu entry." {} 0 OK ]
 foreach i {info questhead error} {
