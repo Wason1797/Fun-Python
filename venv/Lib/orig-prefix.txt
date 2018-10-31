@@ -1,1 +1,1 @@
-d:\program files
+d:\python\python37
