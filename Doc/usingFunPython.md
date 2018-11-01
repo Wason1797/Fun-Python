@@ -5,7 +5,7 @@ This library is ment to be runned from the command line.
 ## Step by Step guide
 
 1. Install [Python](https://www.python.org/downloads/) 3.6.6 or 3.7.0 are fine. _for tensor flow you **will need** 3.6.6_
-1. Make shure you added python into the environment variables on windows, is a checkbox at installation (on windows).![Python installation img](./img/instruction1.png)
+1. Make shure you added python into the environment variables, is a checkbox at installation (on windows).![Python installation img](./img/instruction1.png)
 1. Install `virtualenv`, this will allow you to make your own python environments.
 
     1. Open your command line and type: `pip install virtualenv`
