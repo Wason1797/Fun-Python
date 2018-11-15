@@ -10,6 +10,7 @@ coding challenges
   - Simple syntax and operations in python [first_app.py](Fundamentals/first_app.py)
   - A test file, it's not super important, contains a simple matrix class [test_file.py](Fundamentals/test_file.py)
   - Introduction to turtle graphics, recursive spiral exercise [recursive_spiral.py](Fractal_Trees/recursive_spiral.py)
+  - Basic bubble sorting with lexicographical string ordering [Sorting.py](Fundamentals/Sorting.py)
 - **Fractal Trees**
   - Recursive approach to draw fractal trees (i took the code from an internet example) [app.py](Fractal_Trees/app.py")
   - Object oriented approach [object_fractal_trees.py](Fractal_Trees/object_fractal_trees.py)
