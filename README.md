@@ -4,6 +4,10 @@
 This library is a fun little project; most of the programs are my take on The Coding Train's
 coding challenges
 
+## How to use
+
+You can se the document [here](Doc/usingFunPython.md)
+
 ## Some of the projects i made
 
 - **Python Basics**
@@ -11,6 +15,7 @@ coding challenges
   - A test file, it's not super important, contains a simple matrix class [test_file.py](Fundamentals/test_file.py)
   - Introduction to turtle graphics, recursive spiral exercise [recursive_spiral.py](Fractal_Trees/recursive_spiral.py)
   - Basic bubble sorting with lexicographical string ordering [Sorting.py](Fundamentals/Sorting.py)
+  - A nice problem of dynamic programing taked from HackerEarth [WithoutStatement.py](/Fundamentals/WithoutStatement.py)
 - **Fractal Trees**
   - Recursive approach to draw fractal trees (i took the code from an internet example) [app.py](Fractal_Trees/app.py")
   - Object oriented approach [object_fractal_trees.py](Fractal_Trees/object_fractal_trees.py)
