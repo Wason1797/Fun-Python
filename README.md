@@ -30,7 +30,7 @@ You can se the document [here](Doc/usingFunPython.md)
   - Lexicographic order approach -> this one is like brute forcing into the solution, not  super fast [LexSalesperson.py](Traveling_Salesperson/LexSalesperson.py)
   - Genetic algorithm approach -> this one is more fun, i implemented this one with cross-over and mutation, also I select my population in a random way without repetition, it may need some improvements tho [genSalesperson.py](Traveling_Salesperson/genSalesperson.py)
 - **Tensorflow**
-  - Linear Regression with gradient descent but no interactivity [tsExample.py](Tensor%20Flow/tsExample.py")
+  - Linear Regression with gradient descent but no interactivity [tsExample.py](Tensor%20Flow/tsExample.py)
   - Linear Regression with gradient descent optimizer and interactivity, this script allows you to provide the points on a canvas, so the computer will adjust a line and show it to you [tsLinearRegression.py](Tensor%20Flow/tsLinearRegression.py)
   - Polynomial Regression, quadratic approach with interactivity (same as the linear one) [tsPolyRegression.py](Tensor%20Flow/tsPolyRegression.py)
 
