@@ -16,6 +16,7 @@ You can se the document [here](Doc/usingFunPython.md)
   - Introduction to turtle graphics, recursive spiral exercise [recursive_spiral.py](Fractal_Trees/recursive_spiral.py)
   - Basic bubble sorting with lexicographical string ordering [Sorting.py](Fundamentals/Sorting.py)
   - A nice problem of dynamic programing taked from HackerEarth [WithoutStatement.py](/Fundamentals/WithoutStatement.py)
+  - An algorithm to count all vowels on all posible substrings of a mother string, (not super effiecient) [VowelCount.py](Fundamentals/VowelCount.py)
 - **Fractal Trees**
   - Recursive approach to draw fractal trees (i took the code from an internet example) [app.py](Fractal_Trees/app.py")
   - Object oriented approach [object_fractal_trees.py](Fractal_Trees/object_fractal_trees.py)
@@ -33,6 +34,7 @@ You can se the document [here](Doc/usingFunPython.md)
   - Linear Regression with gradient descent but no interactivity [tsExample.py](Tensor%20Flow/tsExample.py")
   - Linear Regression with gradient descent optimizer and interactivity, this script allows you to provide the points on a canvas, so the computer will adjust a line and show it to you [tsLinearRegression.py](Tensor%20Flow/tsLinearRegression.py)
   - Polynomial Regression, quadratic approach with interactivity (same as the linear one) [tsPolyRegression.py](Tensor%20Flow/tsPolyRegression.py)
+  - Function approximation using Tensor Flow with a simple neural network, you can find more details of the project in the Jupyter notebook. [Function_Approximation](Tensor%20Flow/Function_Approximation)
 
 ## Resources
 
