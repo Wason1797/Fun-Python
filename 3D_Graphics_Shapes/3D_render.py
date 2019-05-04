@@ -64,7 +64,8 @@ def translate(_coord):
 
 
 def connect_points(x1, y1, x2, y2, _stroke):
-    pygame.draw.line(windowSurface, BLUE, translate((int(x1), int(y1))), translate((int(x2), int(y2))), _stroke)
+    pygame.draw.line(windowSurface, BLUE, translate(
+        (int(x1), int(y1))), translate((int(x2), int(y2))), _stroke)
 
 
 rotate = mt.radians(0)
@@ -82,7 +83,8 @@ while True:
         rotated_2d = np.matmul(rotation_matrix_z(rotate), rotated_2d)
         projected_2d = np.matmul(projection_matrix, rotated_2d)
         projected_points.append(projected_2d)
-        pygame.draw.circle(windowSurface, RED, translate((int(projected_2d[0]), int(projected_2d[1]))), 5)
+        pygame.draw.circle(windowSurface, RED, translate(
+            (int(projected_2d[0]), int(projected_2d[1]))), 5)
 
     for j in range(4):
         start = projected_points[j]
